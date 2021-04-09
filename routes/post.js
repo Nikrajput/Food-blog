@@ -41,7 +41,7 @@ router.post('/new',middlewareObj.isLoggedIn,upload.single("image"),async(req,res
         res.redirect('/post')
     }
     catch{
-        res.redirect('/new')
+        res.redirect('post//new')
     }
 })
 
