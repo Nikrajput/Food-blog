@@ -13,11 +13,11 @@ router.get('/',async(req,res)=>{
     }
 
     const posts=await query.exec()
-    res.render('post/index',{posts:posts})
+    res.render('post/index',{posts:posts,errorMessage:''})
 })
 
 router.get('/new',middlewareObj.isLoggedIn,(req,res)=>{
-    res.render('post/new')
+    res.render('post/new',{errorMessage:''})
 })
 
 
@@ -41,7 +41,7 @@ router.post('/new',middlewareObj.isLoggedIn,upload.single("image"),async(req,res
         res.redirect('/post')
     }
     catch{
-        res.redirect('/post/new')
+        res.render('post/new',{errorMessage:'Enter valid data'})
     }
 })
 
@@ -49,16 +49,18 @@ router.get('/:id',async(req,res)=>{
     
     const post=await Post.findById(req.params.id).populate('comments').exec()
     if(post==null){
-        return res.redirect('/post')
+        const posts=await Post.find()
+        return res.render('post/index',{posts:posts,errorMessage:'Post no longer exists'})
     }
-    res.render('post/show',{post:post})
+    res.render('post/show',{post:post,errorMessage:''})
 })
 
 router.delete('/:id',middlewareObj.isLoggedIn,async(req,res)=>{
     
     const post=await Post.findById(req.params.id)
     if(post==null){
-        return res.redirect('/post')
+        const posts=await Post.find()
+        return res.render('post/index',{posts:posts,errorMessage:'Post no longer exists'})
     }
     await cloudinary.uploader.destroy(post.cloudinary_id)
     await post.remove()
@@ -69,9 +71,10 @@ router.get('/:id/edit',middlewareObj.isLoggedIn,async(req,res)=>{
 
     const post=await Post.findById(req.params.id)
     if(post==null){
-        res.redirect('/post')
+        const posts=await Post.find()
+        return res.render('post/index',{posts:posts,errorMessage:'Post no longer exists'})
     }
-    res.render('post/edit',{post:post})
+    res.render('post/edit',{post:post,errorMessage:''})
 })
 
 router.put('/:id',middlewareObj.isLoggedIn,upload.single("image"),async(req,res)=>{
@@ -93,7 +96,7 @@ router.put('/:id',middlewareObj.isLoggedIn,upload.single("image"),async(req,res)
         res.redirect(`/post/${req.params.id}`)
     }
     catch{
-        res.redirect(`/post/${req.params.id}/edit`)
+        res.render(`post/edit`,{post:post,errorMessage:'Enter valid data'})
     }
 })
 

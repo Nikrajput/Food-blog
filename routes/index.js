@@ -8,11 +8,11 @@ const middleware=require('../middleware/index')
 const middlewareObj = require('../middleware/index')
 
 router.get('/',async(req,res)=>{
-    res.render('landing')
+    res.render('landing',{errorMessage:''})
 })
 
 router.get('/signup',(req,res)=>{
-    res.render('user/signup')
+    res.render('user/signup',{errorMessage:''})
 })
 
 router.post('/signup',(req,res)=>{
@@ -26,8 +26,7 @@ router.post('/signup',(req,res)=>{
 
     User.register(newUser,req.body.password,function(err,user){
         if(err){
-            console.log(err)
-            res.redirect('/signup')
+            res.render('user/signup',{errorMessage:'Enter valid data'})
         }
         else{
             passport.authenticate('local')(req, res, function() {
@@ -38,7 +37,7 @@ router.post('/signup',(req,res)=>{
 })
 
 router.get('/login',(req,res)=>{
-    res.render('user/login')
+    res.render('user/login',{errorMessage:''})
 })
 
 router.post('/login',passport.authenticate('local',{
@@ -55,7 +54,7 @@ router.get('/user/:id',middlewareObj.isLoggedIn,async(req,res)=>{
 
     const user=await User.findById(req.params.id)
     if(user==null){
-        return res.redirect('/login')
+        return res.render('user/login',{errorMessage:'No such user'})
     }
     const posts=await Post.find().where('author.id').equals(req.params.id).exec()
     res.render('user/show',{
@@ -69,7 +68,7 @@ router.delete('/user/:id',middleware.isLoggedIn,async(req,res)=>{
     
     const user=await User.findById(req.params.id)
     if(user==null){
-        res.redirect('/login')
+        return res.render('user/login',{errorMessage:'No such user'})
     }
 
     const posts=await Post.find().where('author.id').equals(req.params.id).exec()

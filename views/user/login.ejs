@@ -1,14 +1,17 @@
 <%- include('../partials/header',{username:''})%>
+<% if(errorMessage!=''){ %>
+    <%- include('../partials/error',{errorMessage:errorMessage}) %> 
+<% } %>
 <h1 class="page-header">Login</h1>
 <div class="form-row">
     <form action="/login" method="POST">
         <div class="form-item">
             <label name="username">UserName</label>
-            <input type="text" name="username">
+            <input type="text" name="username" required>
         </div>
         <div class="form-item">
             <label name="password">Password</label>
-            <input type="password" name="password">
+            <input type="password" name="password" required>
         </div>
         <div class="btn-row">
             <button class="btn btn-primary" type="submit">Login</button>

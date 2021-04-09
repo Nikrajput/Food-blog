@@ -1,4 +1,7 @@
 <%- include('../partials/header') %>
+<% if(errorMessage!=''){ %>
+    <%- include('../partials/error',{errorMessage:errorMessage}) %> 
+<% } %>
 <div class="container">
     <h1>Welcome to Food Blogger!!</h1>
     <p>A place for people to share about their food experiences</p>

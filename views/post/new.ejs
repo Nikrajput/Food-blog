@@ -1,22 +1,25 @@
 <%- include('../partials/header') %>
-<h1 class="page-header">Create a New Post</h1>
+<% if(errorMessage!=''){ %>
+    <%- include('../partials/error',{errorMessage:errorMessage}) %> 
+<% } %>
+<h1 class="page-header">Create a New Post</h1>      
 <div class="form-row">
     <form action="/post/new" method="POST" enctype="multipart/form-data">
         <div class="form-item">
             <label for="name">Name</label>
-            <input type="text" name="name">
+            <input type="text" name="name" required>
         </div>
         <div class="form-item">
             <label for="image">Image</label>
-            <input type="file" name="image">
+            <input type="file" name="image" required>
         </div>
         <div class="form-item">
             <label for="description">Description</label>
-            <textarea name="description"></textarea>
+            <textarea name="description" required></textarea>
         </div>
         <div class="form-item">
             <label for="price">Price</label>
-            <input type="number" name="price" min="1">
+            <input type="number" name="price" min="1" required>
         </div>
         <div class="btn-row">
             <button class="btn btn-primary" type="submit">Create</button>

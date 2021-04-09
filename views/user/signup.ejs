@@ -1,4 +1,7 @@
 <%- include('../partials/header')%>
+<% if(errorMessage!=''){ %>
+    <%- include('../partials/error',{errorMessage:errorMessage}) %> 
+<% } %>
 <h1 class="page-header">Sign Up</h1>
 <div class="form-row">
     <form action="/signup" method="POST">
@@ -12,7 +15,7 @@
         </div>
         <div class="form-item">
             <label for="firstName">FirstName</label>
-            <input type="text" name="firstName">
+            <input type="text" name="firstName" required>
         </div>
         <div class="form-item">
             <label for="lastName">LastName</label>

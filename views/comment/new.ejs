@@ -1,8 +1,11 @@
 <%- include('../partials/header') %>
+<% if(errorMessage!=''){ %>
+    <%- include('../partials/error',{errorMessage:errorMessage}) %> 
+<% } %>
 <h1 class="page-header">Add New Comment to <%= post.name %></h1>
 <div class="comment-box">
     <form action="/post/<%= post.id %>/comment/new" method="POST">
-        <textarea class="comment-text" name="text"></textarea>
+        <textarea class="comment-text" name="text" required></textarea>
         <br>
         <div class="comment-btn-row">
             <button class="btn btn-primary" type="submit">Add Comment</button>

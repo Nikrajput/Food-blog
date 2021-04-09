@@ -5,6 +5,7 @@
 @import 'shared/button.css';
 @import 'shared/user.css';
 @import 'shared/comment.css';
+@import 'shared/error.css';
 
 :root{
     --color-base-hue:180;

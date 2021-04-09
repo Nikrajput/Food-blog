@@ -1,4 +1,7 @@
 <%- include('../partials/header') %>
+<% if(errorMessage!=''){ %>
+    <%- include('../partials/error',{errorMessage:errorMessage}) %> 
+<% } %>
 <div class="user-box">
         <h1 class="header username"><%= user.username %> posts:</h1>
         <div class="post-box">
@@ -10,7 +13,7 @@
                 <% }) %>  
             <% } else{ %>
                 <div>
-                    <p><%= user.username %> has not made any post yet.</p>
+                    <p style="font-size: 1.5rem;color: white;"><%= user.username %> has not made any post yet.</p>
                 </div>
             <% } %>   
         </div>

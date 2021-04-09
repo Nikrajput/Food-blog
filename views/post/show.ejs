@@ -1,4 +1,7 @@
 <%- include('../partials/header') %>
+<% if(errorMessage!=''){ %>
+    <%- include('../partials/error',{errorMessage:errorMessage}) %> 
+<% } %>
 <div class="image-container">
     <div class="thumbnail">
         <img src="<%= post.image%>">
