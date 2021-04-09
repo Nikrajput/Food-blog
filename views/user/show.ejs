@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<div class="user-box">
+        <h1 class="header username"><%= user.username %> posts:</h1>
+        <div class="post-box">
+            <% if(posts.length>0){ %> 
+                <% posts.forEach((post)=>{ %>
+                    <li class="li-item">
+                        <a href="/post/<%= post.id %>"><%= post.name %></a>
+                    </li>
+                <% }) %>  
+            <% } else{ %>
+                <div>
+                    <p><%= user.username %> has not made any post yet.</p>
+                </div>
+            <% } %>   
+        </div>
+        <div class="delete-btn">
+            <form action="/user/<%= user.id %>?_method=DELETE" method="POST">
+                <button class="btn btn-danger" type="submit">Delete Account</button>
+            </form>
+        </div>
+</div>
+<%- include('../partials/footer') %>

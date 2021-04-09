@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+<div class="image-container">
+    <div class="thumbnail">
+        <img src="<%= post.image%>">
+        <div class="caption">
+            <h4><%= post.name %></h4>
+            <h4 style="padding-left: 70%;">$<%= post.price %></h4>
+        </div>
+        <p class="description"><%= post.description %></p>
+        <p>Submitted By <a class="username" href="/user/<%= post.author.id %>"><%= post.author.username %></a></p>
+        <% if(currentUser && post.author.id.equals(currentUser._id)){ %>
+            <div class="btn-store">
+                <a class="btn btn-primary" href="/post/<%= post.id %>/edit">Edit</a>
+                <form class="form" action="/post/<%= post.id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </div>
+        <% } %> 
+    </div>
+</div>
+<div class="post-comment-container">
+    <div class="thumbnail">
+        <a  class="add-comment btn btn-primary" href="/post/<%= post.id  %>/comment/new">Add a Comment</a>
+        <% post.comments.forEach((comment)=>{ %> 
+            <div>
+                <div class="caption">
+                    <h4>
+                        <a style="text-decoration: none;" class="username" href="/user/<%= comment.author.id %>"><%= comment.author.username %></a>
+                    </h4>
+                    <p style="padding-left: 79%;"><%= comment.author.dateAdded %></p>
+                </div>
+                <p class="description"><%= comment.text %></p>
+                <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                    <div class="btn-store">
+                        <a class="btn btn-primary" href="/post/<%= post.id %>/comment/<%= comment.id %>/edit">Edit</a>
+                        <form class="form" action="/post/<%= post.id %>/comment/<%= comment.id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                <% } %> 
+            </div>
+        <% }) %> 
+    </div> 
+</div>
+<%- include('../partials/footer') %>

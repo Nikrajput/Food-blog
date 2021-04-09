@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<h1 class="page-header">Edit Comment to <%= post.name %></h1>
+<div class="comment-box">
+    <form action="/post/<%= post.id %>/comment/<%= comment.id %>?_method=PUT" method="POST">
+        <textarea class="comment-text" name="text"><%= comment.text %></textarea>
+        <br>
+        <div class="comment-btn-row">
+            <button class="btn btn-primary" type="submit">Update Comment</button>
+            <a class="btn btn-danger" href="/post/<%= post.id %>">Cancel</a>
+        </div>
+    </form>
+</div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<h1 class="page-header">Add New Comment to <%= post.name %></h1>
+<div class="comment-box">
+    <form action="/post/<%= post.id %>/comment/new" method="POST">
+        <textarea class="comment-text" name="text"></textarea>
+        <br>
+        <div class="comment-btn-row">
+            <button class="btn btn-primary" type="submit">Add Comment</button>
+            <a class="btn btn-danger" href="/post/<%= post.id %>">Cancel</a>
+        </div>
+    </form>
+</div>
+<%- include('../partials/footer') %>

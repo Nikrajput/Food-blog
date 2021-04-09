@@ -1,0 +1,40 @@
+
+.user-box{
+    margin-left: 15vw;
+    color: white;
+}
+
+.user-box  a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: blue;
+}
+
+div .header{
+    margin-left: 15vw;
+}
+
+.post-box{
+    margin-left: 15vw;
+    color: blue;
+    width: 70vh;
+}
+
+
+.li-item{
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+}
+
+.li-item a{
+    padding-left: 22vh;
+}
+
+.delete-btn{
+    margin-left: 27vw;
+    padding-top: 1%;
+}

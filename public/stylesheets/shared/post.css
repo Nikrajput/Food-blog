@@ -1,0 +1,83 @@
+
+.container{
+    text-align: center;
+    color: white;
+}
+
+.container a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: blue;
+}
+
+.image-container{
+    padding-top: 5%;
+    padding-left: 23%;
+}
+
+.thumbnail {
+    width: 40vw;
+    display: block;
+    padding: 60px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.caption{
+    display: flex;
+    align-content: flex-end;
+}
+
+.thumbnail .caption h4{
+    padding-left: 0%;
+    color: rgb(0, 238, 255);
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+
+.caption *{
+    font-size: 1.5rem;
+}
+
+.thumbnail>img {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail p a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-left: 0%;
+}
+
+.btn-store{
+    display: flex;
+    padding-left: 0%;
+
+}
+
+.form{
+    padding: 0%;
+    margin: 0%;
+    padding-left: 2%;
+}
+
+.description,.username{
+    text-transform:capitalize;
+}
+
+.post-comment-container{
+    padding-left: 23%;
+}
+
+.add-comment{
+    margin-left: 73.8%;
+}

@@ -1,0 +1,13 @@
+<div class="image-container">
+    <% posts.forEach((post)=>{ %>
+        <div class="thumbnail">
+            <img src="<%= post.image %>">
+            <div class="caption">
+                <h4><%= post.name %></h4>
+            </div>
+            <p>
+                <a class="btn btn-primary" href="/post/<%= post.id %>">More Info</a>
+            </p>
+        </div>
+    <% }) %>  
+</div>

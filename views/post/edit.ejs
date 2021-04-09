@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<h1 class="page-header">Edit Post</h1>
+<div class="form-row">
+    <form action="/post/<%= post.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form-item">
+            <label for="name">Name</label>
+            <input type="text" name="name" value="<%= post.name %>">
+        </div>
+        <div class="form-item">
+            <label for="image">Image</label>
+            <input type="file" name="image">
+        </div>
+        <div class="form-item">
+            <label for="description">Description</label>
+            <textarea name="description"><%= post.description %></textarea>
+        </div>
+        <div class="form-item">
+            <label for="price">Price</label>
+            <input type="number" name="price" value="<%= post.price %>" min="1">
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-primary" type="submit">Update</button>
+            <a class="btn btn-danger" href="/post/<%= post.id %>">Cancel</a>
+        </div>
+    </form>
+</div>
+ <%- include('../partials/footer') %> 

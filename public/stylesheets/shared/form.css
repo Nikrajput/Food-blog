@@ -1,0 +1,46 @@
+:root{
+    --form-label-font-size:1.2rem;
+    --color-base-hue:180;
+    --form-input-background-color:hsl(var(--color-base-hue),100%,31%);
+    --form-input-border-color:hsl(var(--color-base-hue),100%,50%);
+    --form-input-border-color-light:hsl(var(--color-base-hue),100%,80%);
+}
+
+.form-row{
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40vw;
+    flex-grow: 1;
+    flex-basis: 0;
+    width: 100%;
+}
+
+
+.form-item > label{
+    font-size: var(--form-label-font-size);
+    margin: 0.25rem;
+    color: rgba(255, 255, 255, 0.473);
+}
+
+.form-item input,.form-item textarea{
+    height: 2rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--form-input-border-color);
+    background-color: var(--form-input-background-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    outline: none;
+    width: 50%;
+} 
+
+.form-item textarea{
+    font-size: 1.3rem;
+    columns: 5;
+}

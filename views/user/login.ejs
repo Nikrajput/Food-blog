@@ -1,0 +1,19 @@
+<%- include('../partials/header',{username:''})%>
+<h1 class="page-header">Login</h1>
+<div class="form-row">
+    <form action="/login" method="POST">
+        <div class="form-item">
+            <label name="username">UserName</label>
+            <input type="text" name="username">
+        </div>
+        <div class="form-item">
+            <label name="password">Password</label>
+            <input type="password" name="password">
+        </div>
+        <div class="btn-row">
+            <button class="btn btn-primary" type="submit">Login</button>
+            <a class="btn btn-danger" href="/post">Cancel</a>
+        </div>
+    </form>
+</div>
+<%- include('../partials/footer') %>

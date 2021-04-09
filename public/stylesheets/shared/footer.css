@@ -1,0 +1,21 @@
+
+
+.footer{
+    width: 100%;
+    height: 60px;
+    background-color: azure;
+    margin-top: auto;
+    padding-left: 0%;
+    margin-left: 0%;
+}
+
+.footer p{
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    background-color: azure;
+}
+
+.footer a{
+    text-decoration: none;
+}
