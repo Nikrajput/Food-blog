@@ -16,7 +16,7 @@
 }
 
 .thumbnail {
-    width: 40vw;
+    width: 60vw;
     display: block;
     padding: 60px;
     margin-bottom: 20px;
@@ -27,16 +27,29 @@
 }
 
 .caption{
-    display: flex;
-    align-content: flex-end;
+    width: 55vw;
+    display: grid;
+    align-content: flex-start;
+    align-items: center;
+    grid-template-columns: auto auto;
 }
 
+.comment-username{
+    width: 200px;
+}
+
+.username{
+    align-self: flex-start;
+    text-decoration: none;
+}
+
+
 .thumbnail .caption h4{
-    padding-left: 0%;
     color: rgb(0, 238, 255);
     font-size: 1.5rem;
     text-transform: capitalize;
 }
+
 
 .caption *{
     font-size: 1.5rem;
